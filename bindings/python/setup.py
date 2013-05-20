@@ -39,7 +39,7 @@ setup(
     package_dir = {"cocaine": "bindings/python/cocaine"},
     ext_modules = [Extension("cocaine._client",
                              ["bindings/python/src/module.cpp", "bindings/python/src/client.cpp", "bindings/python/src/response.cpp"],
-                             include_dirs = ["bindings/python/include"],
+                             include_dirs = ["bindings/python/include", "include"],
                              libraries = ["cocaine-dealer"])],
     requires = ["msgpack"]
 )
