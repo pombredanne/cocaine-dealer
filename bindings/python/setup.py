@@ -26,7 +26,7 @@ except ImportError:
     from distutils.core import setup, Extension
 
 setup(
-    name = "cocaine",
+    name = "cocaine-dealer",
     version = "0.10.1",
     description = "Python binding for Cocaine Dealer",
     long_description = "A python binding for libcocaine-dealer library, allow to send messages to Cocaine from python",
