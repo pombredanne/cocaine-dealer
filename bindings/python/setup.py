@@ -25,6 +25,12 @@ try:
 except ImportError:
     from distutils.core import setup, Extension
 
+import os
+libpath = list()
+
+if 'DEB_BUILD_GNU_TYPE' in os.environ:
+    libpath.append('obj-' + os.environ['DEB_BUILD_GNU_TYPE'])
+
 setup(
     name = "cocaine-dealer",
     version = "0.10.1",
@@ -40,6 +46,7 @@ setup(
     ext_modules = [Extension("cocaine._client",
                              ["bindings/python/src/module.cpp", "bindings/python/src/client.cpp", "bindings/python/src/response.cpp"],
                              include_dirs = ["bindings/python/include", "include"],
-                             libraries = ["cocaine-dealer"])],
+                             libraries = ["cocaine-dealer"],
+                             library_dirs = libpath)],
     requires = ["msgpack"]
 )
